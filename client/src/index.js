@@ -2,5 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './style.css';
+import { ContextProvider } from './components/SocketContext';
+ReactDOM.render(
+<ContextProvider>
+<App />, 
+</ContextProvider>,
 
-ReactDOM.render(<App />, document.getElementById('root'));
+document.getElementById('root'));
