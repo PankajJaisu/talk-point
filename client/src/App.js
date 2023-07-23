@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme)=>({
 
 const App = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.wrapper}>
         <AppBar className={classes.appBar} position="static" color='inherit'>
@@ -43,7 +44,7 @@ const App = () => {
             <Notifications />
         </Options>
     </div>
-  )
-}
+  );
+};
 
 export default App;

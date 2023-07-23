@@ -38,7 +38,7 @@
 // }));
 // const Options = ({children}) => {
 //     const {me,callAccepted,name,setName,callEnded,leaveCall,callUser} = useContext(SocketContext);
-//     const [idCall,SetIdCall] = useState('');
+//     const [idCall,setIdCall] = useState('');
 //     const classes = useStyles();
 //   return (
 //     <Container className={classes.container}>
@@ -50,13 +50,25 @@
 //                         <TextField label="Name" value={name} onChange={(e)=>setName(e.target.value)} fullWidth />
 //                         <CopytoClipboard text={me} className={classes.margin}>
 //                             <Button variant='contained' color='primary' fullWidth startIcon={<Assignment fontSize='large'/>}>
-                            
+//                                Copy Your ID
 //                             </Button>
 
 //                         </CopytoClipboard>
                         
 //                     </Grid>
-
+//                   <Grid item xs={12} md={6} className={classes.padding}>
+//                   <Typography gutterBottom variant="h6">Make a call</Typography>
+//                   <TextField label="ID to call" value={idCall} onChange={(e) => setIdCall(e.target.value)} fullWidth />
+//                   {callAccepted && !callEnded ? (
+//                     <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
+//                       Hang Up
+//                     </Button>
+//                   ) : (
+//                     <Button variant="contained" color="primary" startIcon={<Phone fontSize="large" />} fullWidth onClick={() => callUser(idCall)} className={classes.margin}>
+//                       Call
+//                     </Button>
+//                   )}
+//                 </Grid>
 //                 </Grid>
 //             </form>
 //         </Paper>
@@ -69,13 +81,15 @@
 
 
 
+
+
 import React, { useState, useContext } from 'react';
 import { Button, TextField, Grid, Typography, Container, Paper } from '@material-ui/core';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Assignment, Phone, PhoneDisabled } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { SocketContext } from './SocketContext';
+import { SocketContext } from '../SocketContext';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
